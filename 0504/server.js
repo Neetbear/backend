@@ -9,6 +9,7 @@ app.use(express.urlencoded({extended:true}));
 // 데이터 json 형태일시 express.json()~~
 // 둘다 사실은 body-parser 미들웨어 이용 (body-parse도 이젠 express 내장 모듈)
 // 페이로드 사용가능하게 확장 // request message body req.body
+// Content-Type 개체 헤더는 리소스의 media type을 나타내기 위해 사용됩니다.
 
 app.set('view engine', 'html');
 nunjucks.configure('views', {
