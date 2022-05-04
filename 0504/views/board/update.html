@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <h2>글 수정</h2>
+    <form method="post" action="/board/update">
+        <ul>
+            <li>
+                <label for="subject">제목</label>
+                <input type="text" name="subject" value="안녕하세요"/>
+            </li>
+            <li>
+                <label for="content">내용</label>
+                <textarea name="content" id="content">내용입니다</textarea>
+            </li>
+        </ul>
+        <input type="hidden" name="name" value="{{name}}">
+        <input type="hidden" name="idx" value="{{idx}}">
+        <input type="submit" value="글 수정">
+    </form>
+    <a href="/board/view?idx=idx&name=name">목록</a>
+</body>
+</html>

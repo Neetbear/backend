@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+</head>
+<body>
+    <h2>게시판</h2>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>등록일</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><a href="/board/view?idx=1&name=ingoo">글</a></td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </table>
+    <a href="/board/write">글쓰기</a>
+</body>
+</html>
+
+<!--
+GET /restapi/v1.0 HTTP/1.1
+Accept: application/json
+Authorization: Bearer UExBMDFUMDRQV1MwMnzpdvtYYNWMSJ7CL8h0zM6q6a9ntw
+
+query string
+
+/board/view?name=ingoo&name2=ingoo2 // ?로 쿼리스트링 영역 표시해줌
+키=밸류&키=밸류
+
+get method에서 data 넘기는 유일한 방법
+-->
