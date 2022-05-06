@@ -5,6 +5,7 @@ const view = async (req, res) => {
         const [result] = await pool.query(`SELECT * FROM board WHERE idx=${req.query.idx}`);
         console.log(result);
         res.render(`board/view`, {
+            idx:req.query.idx,
             item:result
         });
     } catch (e) {
