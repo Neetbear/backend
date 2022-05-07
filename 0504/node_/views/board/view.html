@@ -7,7 +7,7 @@
     <title>View</title>
 </head>
 <body>
-    {{idx}}번째 게시글
+    {{item.idx}}번째 게시글
     <ul>
         <li>
             <label for="subject">제목</label>
@@ -16,6 +16,10 @@
         <li>
             <label for="subject">작성자</label>
             {{item.name}}
+        </li>
+        <li>
+            <label for="subject">작성일</label>
+            {{item.date}}
         </li>
         <li>
             <label for="subject">조회수</label>
@@ -30,6 +34,8 @@
             {{item.like}}
         </li>
     </ul>
-
+    <a href="/board/list">목록</a>
+    <a href="/board/update?idx={{item.idx}}">수정</a>
+    <a href="/board/delete?idx={{item.idx}}">삭제</a>
 </body>
 </html>
