@@ -2,11 +2,11 @@ const pool = require('../../db.js')
 
 const view = async (req, res) => {
     try {
-        const [result] = await pool.query(`SELECT * FROM board WHERE idx=${req.query.idx}`);
+        const [[result]] = await pool.query(`SELECT * FROM board WHERE idx=${req.query.idx}`);
         console.log(result);
         res.render(`board/view`, {
             idx:req.query.idx,
-            item:result[0]
+            item:result
         });
     } catch (e) {
         console.error(e)
@@ -31,9 +31,9 @@ const write = (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const [result] = await pool.query(`SELECT * FROM board WHERE idx=${req.query.idx}`)
+        const [[result]] = await pool.query(`SELECT * FROM board WHERE idx=${req.query.idx}`)
         res.render('board/update', {
-            item:result[0]
+            item:result
         });
     } catch (e) {
         console.log(e)
