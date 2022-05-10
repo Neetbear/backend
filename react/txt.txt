@@ -18,3 +18,13 @@ react(코드 쓴 공간) <-> browser(코드 실행)
 csr (client side rendering) -> spa(single page aplication)
 
 webpack 설정하면 ssr (server side rendering) -> 완벽한 spa는 아님 
+
+http 통신 -> 요청 응답 ( 요청이 무조건 먼저 있어야 한다 ) 
+            client / server 구조 확실 
+            일방적 소통
+            문자 느낌 
+websocke -> 연결 / 양방향 
+            전제 조건 port 열려있어야 한다
+            최초의 요청 port 열려있니? 같은 느낌 (handshake -> 연결)
+            전파 ( broadcast)
+            통화 느낌 ( 전화 건 사람 client / 받은 사람 server)

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--react 사용 세팅-->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div class="root"></div>
+    <script type="text/babel"> 
+        // ReactDOM -> react로 가진 코드를 html로 변환
+        // 인자 2개
+        // 1. react code -> React.createElement() 
+        // 2. body 영역에서 내가 html을 만들 영역 document.querySelector('id or class')
+        // ReactDOM.render(
+        //     React.createElement('div'),
+        //     document.querySelector('.root')
+        // );
+        // ReactDOM.render( // 17버전 문법
+        //     <div></div>, // jsx 문법 babel 사용해서 가능
+        //     document.querySelector('.root')
+        // );
+        const root = ReactDOM.createRoot(document.querySelector('.root'));
+        console.log(<div class="aa">abc</div>) // props 알아두기
+        // React.createElement('div') === <div></div>
+
+        // 컴포넌트란 무엇인가?
+        // jsx를 반환하면 함수 또는 클래스를 컴포넌트라고 칭함
+
+        const App = () => {
+            const a = () => {
+                console.log('a')
+            }
+            const list = [
+                <div>1</div>,
+                <div>2</div>,
+                <div>3</div>
+            ] // list는 array
+              // {list} 가능한 이유는? 
+              // const list2 = [1,2,3].map( v => <div>v</div>)
+
+            const [value, setValue] = React.useState('aaa'); 
+            // return array[초기값, 함수] / 비구조할당
+            // React.useState('aaa') -> aaa는 초기값
+            // useState를 통한 Lifecycle(render) 
+            // setValue를 통해서 value에 변화가 있으면 re-rendering
+
+            console.log('Hello World1')
+            
+            // 렌더링을 관리하려고 만든 녀석이 useEffect
+            React.useEffect( () => {
+                console.log('이게 언제 찍힐까~?')
+
+                return () => {
+                    console.log('asdf')
+                }
+            }, [value]) 
+            // useEffect도 함수 -> 콜백은 실행된 상태가 아니다 
+            // return이 끝나고 콜백이 실행 -> return이 끝나야만 실행 즉 렌더가 될때만
+            // useEffect도 인자가 2개 
+            // 2번째 인자 -> 변수 추적 / 빈배열은 추적을 안하겠다 -> componentDidMount 최초실행할때만
+            // [value] -> 최초실행시 실행되고, value가 변할때도 실행 -> componentDidUpdate
+            // return을 주면 소멸시 실행 -> 안써도 됨 -> componentWillUnmount
+            
+            const handleClick = () => {
+                console.log(value)
+                // axios or fetch 실행시 통신 
+                setValue(2) // 값의 변화가 없으면 re-rendering이 안된다
+            }
+
+            console.log('Hello World2')
+
+            return (
+                <div>
+                    <ABC onClick={a}>abcdefghijklmnop </ABC> 
+                    {list}
+                    {value}
+                    <button onClick={handleClick}>클릭</button>
+                </div>
+            )
+        }
+        /*
+            type:ABC,
+            props:{
+                children: [
+                    ABC:{
+                        'abcdefghijklmnop',
+                        onClick:() => {
+                            console.log('a')
+                        } -> props로 인식할뿐 이벤트 인식 못 함
+                    },
+                    list:{
+                        [
+                            <div>1</div>,
+                            <div>2</div>,
+                            <div>3</div>
+                        ]
+                    }
+                ]
+            }
+        */
+        root.render(<App />) // App() 해도 먹음 
+        // console.log(<App>abc</App>) // props에 children 속성 생김
+
+        const ABC = (props) => {
+            // 함수 표현, 함수 호출 정확하게 구분할 것 onClick={props.onClick}
+            console.log('1', props)
+            return (
+                <div>
+                    hello ABC
+                    <br />
+                    <button onClick={props.onClick}>버튼</button>
+                    <br/>
+                    {props.children}
+                </div>
+            )
+        }
+    </script> 
+</body>
+</html>

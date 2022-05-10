@@ -13,3 +13,14 @@
 
 - front : react 
 
+```
+    /*
+        handle click 눌렀을때
+        post로 요청 /getCookie로 요청을 보내고
+        router middleware -> cookie-parser cookie 생성, 
+        응답을 줌,
+        response header set-cookie 정보가, 
+        브라우저 생성
+        credential
+    */
+```

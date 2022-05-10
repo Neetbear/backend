@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-app.use(cors())
+app.use(cors({
+    credentials: 'true'
+}))
 
 app.get('/', (req, res) => {
     res.send("Hello World");
