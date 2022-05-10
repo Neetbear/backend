@@ -32,6 +32,23 @@
         // 컴포넌트란 무엇인가?
         // jsx를 반환하면 함수 또는 클래스를 컴포넌트라고 칭함
 
+        const UseInput = (defaultValue) => {
+            const [value, setValue] = React.useState(defaultValue)
+            const onChange = e => {
+                setValue(e.target.value)
+            }
+            return {
+                value,
+                onChange
+            }
+        } 
+        /*  이런 느낌 -> 변수명이 달라지면 안됨 
+            return {
+                value:value,
+                onChange:onChange
+            }
+        */
+
         const App = () => {
             const a = () => {
                 console.log('a')
@@ -75,13 +92,55 @@
 
             console.log('Hello World2')
 
+            const [userId, setUserId] = React.useState('');
+            const [userPw, setUserPw] = React.useState('');
+
+            const handleSubmit = e => {
+                e.preventDefault()
+                console.log(userId, userPw)
+                // axios http://localhost:3000 {userId,userPw}
+                // result
+                // 작업
+            }
+            const userIdChange = e => {
+                setUserId(e.target.value)
+            }
+            const userPwChange = e => {
+                setUserPw(e.target.value)
+            }
+            /*  
+                // 이렇게 만들면 하수 custom hook 사용하기 UseInput 확인
+                const userId = useInput('')
+                const userPw = useInput('')
+                const handleSubmit = e => {
+                    e.preventDefault() 
+                    console.log(userId.value, userPw.value)
+                }
+                return (
+                    <>
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" name="userId" {...userId}/>    
+                            <input type="password" name="userPw" {...userPw/> 
+                            <input type="submit" value="로그인" /> 
+                        </form>
+                    </>
+                )
+            */
+                
             return (
-                <div>
-                    <ABC onClick={a}>abcdefghijklmnop </ABC> 
-                    {list}
-                    {value}
-                    <button onClick={handleClick}>클릭</button>
-                </div>
+                <>
+                    <div>
+                        <ABC onClick={a}>abcdefghijklmnop </ABC> 
+                        {list}
+                        {value}
+                        <button onClick={handleClick}>클릭</button>
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" name="userId" value={userId} onChange={userIdChange}/>    
+                        <input type="password" name="userPw" value={userPw} onChange={userPwChange}/> 
+                        <input type="submit" value="로그인" /> 
+                    </form>
+                </>
             )
         }
         /*
