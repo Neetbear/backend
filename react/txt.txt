@@ -1,0 +1,20 @@
+face book 이 만든거
+
+react -> 라이브러리
+react - dom -> 라이브러리
+
+create react app -> 프레임워크
+    webpack -> 번들링 시스템 (싱글 페이지 어플리케이션)
+    babel -> jsx(JavaScript를 확장한 문법) -> 객체로 치환
+
+    리액트는 서버가 없음 -> (webpack)devserver webpack이 만들어줌 (express 대신) 
+        -> 개발용도 -> 배포시엔 따로 해줘야함
+
+    리액트는 브라우저 코드에서 실행된다 
+
+프로세스끼리 자원 공유 안됨
+
+react(코드 쓴 공간) <-> browser(코드 실행)
+csr (client side rendering) -> spa(single page aplication)
+
+webpack 설정하면 ssr (server side rendering) -> 완벽한 spa는 아님 
