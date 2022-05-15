@@ -7,3 +7,5 @@ function test() {
 const {a, b} = test()
 
 console.log("a : " + a , ", b : " + b)
+
+console.log(typeof 4)
