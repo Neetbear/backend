@@ -1,0 +1,26 @@
+https://nodejs.org/api/url.html
+-> url 기본 꼴
+
+https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Authorization
+-> Authorization
+
+
+user          브라우저          express:3005서버          카카오 auth 서버
+
+
+auth 서버는 인증만 해줘야한다
+브라우저와 express 서버는 로그인 결과만 알고 카카오 아이디와 비밀번호는 모른다
+    -> 보안을 위해서 탄생 -> 부 목적 간단 로그인
+
+카카오 api
+        로그인 맵 주소 결제.....
+        어떤 제품을 쓸지 설정해줘야함
+
+rest api key : 48d0bbec8d37775d62f082257ce6de34
+redirect url : http://localhost:3005/auth/kakao
+secret key   : b8ccYk3SwxNtxgtN0TWliS7bxsRnCgs6
+
+request 방법
+GET /oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code HTTP/1.1
+Host: kauth.kakao.com
+query string 형태로 이용해서 던져라
