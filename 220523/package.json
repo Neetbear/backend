@@ -1,0 +1,18 @@
+{
+  "name": "220523",
+  "version": "1.0.0",
+  "description": "ws://  녀석을 조금이라도 이해하는게 목표",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nunjucks": "^3.2.3",
+    "ws": "^8.6.0"
+  }
+}

@@ -35,3 +35,7 @@ npm install redux
 context api / useReducer -> store
 
 passport 사용방법 passport 공식 사이트
+
+
+
+cra 버전 업되면서 webpack도 5로 버전 업 -> 문제가 web3랑 호환이 안됨
