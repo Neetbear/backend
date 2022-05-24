@@ -7,9 +7,9 @@
         "jsx": "react",
         "esModuleInterop": true,
         "allowJs": true,
-        "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
+        // "moduleResolution": "node",
+        // "allowSyntheticDefaultImports": true,
+        // "strict": true,
         "baseUrl": ".",
         "paths": {
             "@pages/*": ["src/pages/*"]
